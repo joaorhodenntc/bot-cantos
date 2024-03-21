@@ -69,8 +69,8 @@ async function analisarPartidas(){
                     const nomeFora = partidas[i].teamB.name;
                     const cantosCasa = partidas[i].teamA.stats.corners.t;
                     const cantosFora = partidas[i].teamB.stats.corners.t;
-                    const oddCasa = partidas[i].odds.starting['1X2'].bet365['1'];
-                    const oddFora = partidas[i].odds.starting['1X2'].bet365['2'];
+                    const oddCasa = partidas[i].odds.kickoff['1X2'].bet365['1'];
+                    const oddFora = partidas[i].odds.kickoff['1X2'].bet365['2'];
                     mensagemIndicacao = "🤖 Entrar em OVER CANTOS";
                     const mensagem = `*${nomeCasa}* vs *${nomeFora}*\n\n⚽ Placar: ${placarCasa} x ${placarFora}\n⚔️ Ataques Perigosos: ${apCasa >= 45 ? '*' + apCasa + '* 🔥' : apCasa} x ${apFora >= 45 ? '*' + apFora + '* 🔥' : apFora}\n📈 Odds Pré: ${oddCasa <= 1.45 ? oddCasa + ' 👑' : oddCasa} x ${oddFora <= 1.45 ? oddFora + ' 👑' : oddFora}\n⛳️ Cantos: ${cantosCasa} x ${cantosFora}\n🕛 Tempo: ${minutos}\n\n*${mensagemIndicacao}*`;
                     await enviarMensagemTelegram(chat_bot,mensagem);
